@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        
         if (collider.tag == "Death")
         {
             isDead = true;
@@ -65,6 +66,13 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Slide(lastMove));
         }
+
+    }
+
+    void OnTriggerStay(Collider collider)
+    {
+        if (collider.tag == "Paint" && !isMoving && !isSliding)
+            transform.position = collider.transform.position + new Vector3(0f, 0.5f, 0f);
     }
 
     void Assemble(Vector3 dir)
@@ -85,21 +93,20 @@ public class PlayerController : MonoBehaviour
             transform.RotateAround(anchor, axis, rollSpeed);
             yield return new WaitForSeconds(0.01f);
         }
-        yield return new WaitForSeconds(0.3f);
-
+        yield return new WaitForSeconds(0.2f);
         isMoving = false;
     }
 
     IEnumerator Slide(Vector3 direction)
     {
         isSliding = true;
-
-        for (int i = 0; i < (100 / rollSpeed); i++)
+        for (int i = 0; i < (99 / rollSpeed); i++)
         {
             transform.position += direction * rollSpeed / 100;
             yield return new WaitForSeconds(0.01f);
         }
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
+    
         isSliding = false;
     }
 }

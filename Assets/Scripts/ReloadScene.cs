@@ -21,8 +21,7 @@ public class ReloadScene : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            SceneManager.LoadScene(PlayerPrefs.GetInt("currentLevel"));
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

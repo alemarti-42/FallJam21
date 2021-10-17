@@ -37,29 +37,31 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    void Pause()
+    {
+        PauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        IsPaused = true;
+    }
+    
     void Resume()
     {
     	PauseMenuUI.SetActive(false);
-    	//Time.timeScale = 1f;
+    	Time.timeScale = 1f;
     	IsPaused = false;
-    }
-
-    void Pause()
-    {
-    	PauseMenuUI.SetActive(true);
-    	//Time.timeScale = 0f;
-    	IsPaused = true;
     }
 
     void RestartLevel()
     {
         IsPaused = false;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(PlayerPrefs.GetInt("currentLevel"));
     }
 
     void ExitToMenu()
     {
         IsPaused = false;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 

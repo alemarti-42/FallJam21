@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (isMoving) return;
+        if (isMoving || PauseMenu.IsPaused) return;
         if (levelComplete == true)
         {
             time += Time.deltaTime;

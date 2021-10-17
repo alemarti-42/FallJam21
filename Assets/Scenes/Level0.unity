@@ -1819,6 +1819,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1606211291639377918, guid: 9769b3e5d28832b49b497ba2271b0d34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1606211291760554694, guid: 9769b3e5d28832b49b497ba2271b0d34, type: 3}
       propertyPath: m_TagString
       value: Player
@@ -1874,6 +1878,10 @@ PrefabInstance:
     - target: {fileID: 5204845330479482261, guid: 9769b3e5d28832b49b497ba2271b0d34, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204845330479482261, guid: 9769b3e5d28832b49b497ba2271b0d34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5204845330479482261, guid: 9769b3e5d28832b49b497ba2271b0d34, type: 3}
       propertyPath: m_TagString

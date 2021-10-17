@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Death
+  - Reload
   - Paint
+  - Paintable
   layers:
   - Default
   - TransparentFX

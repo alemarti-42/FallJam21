@@ -5,12 +5,10 @@ using UnityEngine;
 public class ChangeColor : MonoBehaviour
 {
     //public GameObject test;
-    public Color color1 = new Color(1f, 1f, 0f, 1f);
-    public Color color2 = new Color(0f, 1f, 1f, 1f);
-    private  Material mat;
-    private  Material mat1;
-    private  Material mat2;
-
+    //public Color color1 = new Color(1f, 1f, 0f, 1f);
+    //public Color color2 = new Color(0f, 1f, 1f, 1f);
+   // public GameObject player;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -20,25 +18,22 @@ public class ChangeColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Material mat = GetComponent<Renderer> ().material;
-        if (Input.GetKeyDown(KeyCode.Space))    
-        {
-            Debug.Log("Color");
-            mat.SetColor("_Color",CombineColors(color1, color2));
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))    
+        //{
     }
 
     void OnTriggerEnter(Collider collider)
     {
-        Material mat = GetComponent<Renderer> ().material;
         //mat1 = collider.GetComponent<Renderer>().material;
         //mat2 = this.GetComponent<Renderer>().material;
         //Debug.Log("Collision");
-        if (collider.tag == "Paint")
-        {
+        //if (collider.tag == "Paint")
+        //{
             //If the GameObject has the same tag as specified, output this message in the console
+        if (collider.tag == "Paint" || collider.tag == "Player")
+        {
             Debug.Log("Do something else here");
-            mat.SetColor("_Color",CombineColors(collider.GetComponent<Renderer>().material.GetColor("_Color"), this.GetComponent<Renderer>().material.GetColor("_Color")));
+            this.GetComponent<Renderer> ().material.SetColor("_Color",CombineColors(collider.GetComponent<Renderer>().material.GetColor("_Color"), this.GetComponent<Renderer>().material.GetColor("_Color")));
 
         }
     }   

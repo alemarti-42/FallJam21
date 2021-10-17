@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Roll(Vector3 anchor, Vector3 axis)
     {
         isMoving = true;
-
+        GetComponent<AudioSource>().Play(0);
         for (int i = 0; i < (90 / rollSpeed); i++)
         {
             transform.RotateAround(anchor, axis, rollSpeed);

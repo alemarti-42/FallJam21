@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private bool isMoving;
+    public bool isMoving;
+    public bool isSliding;
     public bool isDead = false;
     public bool levelComplete = false;
     public float rollSpeed;
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     Vector3 gravity = Vector3.down * -9.8f;
     private Vector3 fallSpeed;
     private float time = 0.0f;
+    private Vector3 lastMove;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (isMoving) return;
+        if (isMoving || isSliding) return;
         if (levelComplete == true)
         {
             time += Time.deltaTime;
@@ -58,10 +61,15 @@ public class PlayerController : MonoBehaviour
         {
             isDead = true;
         }
+        if (collider.tag == "Slippery")
+        {
+            StartCoroutine(Slide(lastMove));
+        }
     }
 
     void Assemble(Vector3 dir)
     {
+        lastMove = dir;
         var anchor = transform.position + (Vector3.down + dir) * 0.5f;
         var axis = Vector3.Cross(Vector3.up, dir);
 
@@ -77,6 +85,21 @@ public class PlayerController : MonoBehaviour
             transform.RotateAround(anchor, axis, rollSpeed);
             yield return new WaitForSeconds(0.01f);
         }
+        yield return new WaitForSeconds(0.3f);
+
         isMoving = false;
+    }
+
+    IEnumerator Slide(Vector3 direction)
+    {
+        isSliding = true;
+
+        for (int i = 0; i < (100 / rollSpeed); i++)
+        {
+            transform.position += direction * rollSpeed / 100;
+            yield return new WaitForSeconds(0.01f);
+        }
+        yield return new WaitForSeconds(0.3f);
+        isSliding = false;
     }
 }

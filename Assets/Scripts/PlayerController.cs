@@ -26,8 +26,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (isMoving || isSliding) return;
+        if (isMoving || isSliding || PauseMenu.IsPaused) return;
         if (levelComplete == true)
         {
             time += Time.deltaTime;

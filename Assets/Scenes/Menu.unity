@@ -1203,6 +1203,7 @@ GameObject:
   - component: {fileID: 1801544477}
   - component: {fileID: 1801544476}
   - component: {fileID: 1801544475}
+  - component: {fileID: 1801544478}
   m_Layer: 5
   m_Name: RestartLevelsButon
   m_TagString: Untagged
@@ -1312,6 +1313,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801544473}
   m_CullTransparentMesh: 1
+--- !u!114 &1801544478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801544473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c54593a1ef7d44d5ab2507ec11a7703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tlev: {fileID: 524034691}
 --- !u!1 &1992434539
 GameObject:
   m_ObjectHideFlags: 0
